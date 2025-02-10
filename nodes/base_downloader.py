@@ -34,14 +34,14 @@ class BaseModelDownloader:
             })
 
 
-    def prepare_download_path(self, local_path, filename=""):
+    def prepare_download_path(self, local_path, filename):
         # Just create the base directory, don't include the filename
         full_path = os.path.join(get_base_dir(), local_path)
         if not os.path.exists(full_path):
             os.makedirs(full_path, exist_ok=True)
         return full_path
     
-    def handle_download(self, download_func, save_path, filename="", overwrite=False, **kwargs):
+    def handle_download(self, download_func, save_path, filename, overwrite=False, **kwargs):
         try:
             file_path = os.path.join(save_path, filename)
             if os.path.exists(file_path) and not overwrite:

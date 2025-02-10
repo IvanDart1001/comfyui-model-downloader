@@ -9,6 +9,7 @@ class CivitAIDownloader(BaseModelDownloader):
                 "model_id": ("STRING", {"multiline": False, "default": "360292"}),
                 "token_id": ("STRING", {"multiline": False, "default": "token_here"}),
                 "save_dir": (get_model_dirs(),),
+                "filename": ("STRING", {"multiline": False, "default": "name_here"}),
             },
             "hidden": {
                 "node_id": "UNIQUE_ID"
@@ -17,10 +18,10 @@ class CivitAIDownloader(BaseModelDownloader):
         
     FUNCTION = "download"
 
-    def download(self, model_id, token_id, save_dir, node_id):
+    def download(self, model_id, token_id, save_dir, node_id, filename):
         self.node_id = node_id
             
-        save_path = self.prepare_download_path(save_dir)
+        save_path = self.prepare_download_path(save_dir, filename)
         url = f'https://civitai.com/api/download/models/{model_id}'
         
         return self.handle_download(
