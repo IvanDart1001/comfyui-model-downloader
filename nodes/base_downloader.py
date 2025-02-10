@@ -34,7 +34,7 @@ class BaseModelDownloader:
             })
 
 
-    def prepare_download_path(self, local_path, filename):
+    def prepare_download_path(self, local_path, *filename):
         # Just create the base directory, don't include the filename
         full_path = os.path.join(get_base_dir(), local_path)
         if not os.path.exists(full_path):
