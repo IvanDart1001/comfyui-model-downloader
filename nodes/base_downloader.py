@@ -12,6 +12,10 @@ def get_model_dirs():
     model_dirs = [d for d in os.listdir(models_dir) if os.path.isdir(os.path.join(models_dir, d))]
     return model_dirs
 
+def get_format_list():
+    format_list = [".safetensors", ".ckpt", ".onnx", ".gguf", ".bin", ".pt", ""]
+    return format_list
+
 class BaseModelDownloader:
     RETURN_TYPES = ()
     OUTPUT_NODE = True

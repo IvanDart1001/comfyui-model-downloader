@@ -1,4 +1,4 @@
-from ..base_downloader import BaseModelDownloader, get_model_dirs
+from ..base_downloader import BaseModelDownloader, get_model_dirs, get_format_list
 from ..download_utils import DownloadManager
 
 class CivitAIDownloader(BaseModelDownloader):     
@@ -10,7 +10,7 @@ class CivitAIDownloader(BaseModelDownloader):
                 "token_id": ("STRING", {"multiline": False, "default": "token_here"}),
                 "save_dir": (get_model_dirs(),),
                 "filename": ("STRING", {"multiline": False, "default": "name_here"}),
-                "format": ([".safetensors", ".ckpt", ".onnx", ".gguf", ".bin", ".pt", ""])
+                "format": (get_format_list(),),
             },
             "hidden": {
                 "node_id": "UNIQUE_ID"
