@@ -29,5 +29,6 @@ class CivitAIDownloader(BaseModelDownloader):
             url=url,
             save_path=save_path,
             progress_callback=self,
-            params={'token': token_id}
+            params={'token': token_id},
+            filename=filename
         )
