@@ -41,7 +41,7 @@ class BaseModelDownloader:
             os.makedirs(full_path, exist_ok=True)
         return full_path
     
-    def handle_download(self, download_func, save_path, filename, overwrite=False, **kwargs):
+    def handle_download(self, download_func, save_path, *filename, overwrite=False, **kwargs):
         try:
             file_path = os.path.join(save_path, filename)
             if os.path.exists(file_path) and not overwrite:
